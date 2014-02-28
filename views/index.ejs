@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/quotes.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+     io = io.connect('http://localhost:3000');
+     $(document).ready(function(){
+    
+      io.on('new_quote', function(quote){
+        // console.log('got here!!!!!!!!');
+          $('#quote_div').html("<h1>"+'"'+ quote.name+'"'+"</h1><div id='new_quote_div'></div>");
+          $('#new_quote_div').html("<button id='new_quote'>Give me a new quote!</button><br><br><a href='/''>Back to Home Page</a>");
+          $('#math_div').hide();
+      })
+
+      $(document).on('click','#new_quote', function(){
+        io.emit('give_me_a_new_quote');
+      })
+
+     io.on('wrong', function(message){
+      $('#error').html(message);
+     })
+
+      $('#geek').submit(function(){
+        namer = $('#name').val();
+        room = 'geek';
+        $('body').prepend("<h1 class='namerson'>Hello "+namer+", Welcome to our Quote App!</h1>");
+        $('#math_div').show();
+        $('#type').hide();
+         $('#title').hide();
+        return false;
+      })
+
+      $('#artist').submit(function(){
+        namer = $('#name').val();
+        room = 'artist';
+        $('body').prepend("<h1 class='namerson'>Hello "+namer+", Welcome to our Quote App!</h1>");
+        $('#math_div').show();
+        $('#type').hide();
+        $('#title').hide();
+        return false;
+      })
+     
+      $('#math_form').submit(function(){
+        var answer = $('#answer').val();
+        io.emit('give_me_a_quote', {answer: answer, correct_answer: correct_answer, room: room});
+        return false;
+      })
+    })
+    </script>
+  </head>
+  <body>
+    <h1 id='title'>Quotes App</h1>
+    <div id='type'>
+      <input type='text' placeholder='name' id='name'><br>
+      <form id='geek'>
+        <input value='Click if you are a Geek!' type='submit' class='sub'>
+      </form>
+      <form id='artist'>
+        <input value='Click if you are an Artist!' type='submit' class='sub'>
+      </form>
+    </div>
+    <div id='math_div' style='display:none'>
+      <h2>I will give you an awesome quote if you can answer the folling math question.</h2>
+      <div id='error'>
+      </div>
+      <script>
+      var num1 = Math.floor((Math.random()*10)+1);
+      var num2 = Math.floor((Math.random()*10)+1);
+      $('#math_div').append("<p id='equation'>"+num1 + "+"+ num2+ "= ");
+      var correct_answer = num1 + num2;
+     </script>
+      <form id='math_form'>
+        <input type='text' id='answer' name='math_answer'>
+        <input type='submit' style='display:none' name='math_submit'>
+      </form>
+    </p>
+    </div>
+
+    </div>
+    <div id='quote_div'>
+
+    </div>
+    
+
+  </body>
+</html>

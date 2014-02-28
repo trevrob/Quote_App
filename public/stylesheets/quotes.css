@@ -1,0 +1,97 @@
+body {
+  padding: 20px 50px 20px 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: #ECE4CC;
+}
+
+a {
+  color: #00B7FF;
+}
+#error{
+	color: red;
+	font-weight: bold;
+	font-size: large;
+}
+#title{
+	font-size: 500%;
+	color: #183252;
+	margin-bottom: 20px; margin-top: 0px;
+}
+.namerson{
+	font-size: 350%;
+	color: #183252;
+}
+h2{
+	font-size: 200%;
+}
+#type{
+	background-color: #C6BB9D;
+	padding: 10px 10px 10px 10px;
+	border: hidden;
+	border-radius: 10px;
+}
+#math_form, #equation{
+	display: inline-block;
+}
+#name{
+	background-color: #ECE4CC;
+	border: hidden;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	font-size: large;
+}
+.sub{
+	margin-top: 10px;
+	background-color: #183252;
+	color: white;
+	border: hidden;
+	border-radius: 5px;
+	font-size: medium;
+	padding: 5px 5px 5px 5px;
+}
+#math_form, #equation{
+	display: inline-block;
+}
+#geek, #artist{
+	display: inline-block;
+}
+#math_div{
+	background-color: #C6BB9D;
+	padding: 10px 10px 10px 10px;
+	border: hidden;
+	border-radius: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+#equation{
+	font-size: 300%;
+	font-weight: bold;
+	margin: 5px 5px 5px 5px;
+	display: inline-block;
+}
+#answer{
+	background-color: #ECE4CC;
+	border: hidden;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	font-size: large;
+	height: 50px;
+	width: 100px;
+	font-size: large;
+}
+
+button{
+	margin-top: 10px;
+	background-color: #183252;
+	color: white;
+	border: hidden;
+	border-radius: 5px;
+	font-size: medium;
+	padding: 5px 5px 5px 5px;
+}
+#math_answer{
+	display: inline-block;
+}
+
+
